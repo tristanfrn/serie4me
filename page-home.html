@@ -1,0 +1,47 @@
+<form novalidate class="add_serie" ng-submit="addSerie()" name="form">
+    <input class="name" type="text" required ng-model="form.title" name="name" placeholder="Breaking Bad">
+    <input type="submit" value="+" class="submit" ng-disabled="form.$invalid">
+</form>
+
+<section id="series">
+
+    <ul class="series">
+        <li class="serie" ng-repeat="(serie_index, serie) in series track by $index">
+
+            <div class="slide" style="width:{{serie.count.percentage}}%"></div>
+            <div class="ep_count"><span class="viewed">{{serie.count.episodes_v}}</span>/<span class="total">{{serie.count.episodes_t}}</span></div>
+            <section class="content" hm-swipe-right="removeSerie(serie_index)" hm-tap="showSerieButtons($index,$event)">
+                <p>{{serie.title}}</p>
+            </section>
+            <section class="buttons_container {{buttons.serie[serie_index]}}">
+                <button hm-tap="addSeason(serie_index)"><img src="img/add.png" alt="+"></button>
+                <button hm-tap="removeSeason(serie_index)"><img src="img/remove.png" alt="-"></button>
+                <button hm-tap="removeSerie(serie_index)"><img src="img/delete.png" alt="-"></button>
+                <!--<button hm-tap="showSerieDetails(serie_index)">i</button>-->
+            </section>
+            <section class="buttons {{buttons.serie[serie_index]}}">
+                    <section class="series_container">
+                        <div class="clear"></div>
+                        <ul class="seasons {{buttons.serie[serie_index]}}">
+                            <li class="season" ng-repeat="(season_index, season) in serie.seasons track by $index">
+                                <section class="buttons_season {{buttons.seasons[serie_index][season_index]}}">
+                                    <button hm-tap="addEpisode(serie_index,season_index)"><img src="img/add.png" alt="+"></button>
+                                    <button hm-tap="removeEpisode(serie_index,season_index)"><img src="img/remove.png" alt="-"></button>
+                                </section>
+                                <section class="content2" hm-tap="showSeasonButtons(serie_index,season_index)"><p>saison {{ season_index+1 }}</p></section>
+                                <section class="content_season">
+                                    <section class="episodes {{buttons.seasons[serie_index][season_index]}}">
+                                        <article ng-repeat="(episode_index, episode) in serie.seasons[season_index] track by $index" class="episode {{series[serie_index].seasons[season_index][episode_index]}}" hm-tap="checkEpisode(serie_index,season_index,episode_index)">
+                                            <p class="ep_nb">{{ episode_index+1 }}</p>
+                                               <img src="img/valid.png" alt="" class="ico_valid" ng-class="{validated: series[serie_index].seasons[season_index][episode_index]}">
+                                        </article><div class="fix">&nbsp;</diV>
+                                        <div class="clear"></div>
+                                    </section>
+                                </section>
+                            </li>
+                        </ul>
+                    </section>
+            </section>
+        </li>
+    </ul>
+</section>

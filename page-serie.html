@@ -1,0 +1,22 @@
+<section class="error {{error_res}}">
+	<h3>Aucun résultat pour cette série !</h3>
+</section>
+<section class="error {{error_co}}">
+	<h3>Erreur lors de la connection !</h3>
+</section>
+
+<section class="page-content {{error_co}} {{error_res}} ">
+	<section class="navigation-menu"></section>
+	<section class="serie-details-content">
+		<section class="top-serie-menu" style="background-image:url({{seriedetails.backdrop}})">
+		    <section class="gradient"></section>
+		    <h3>{{seriedetails.name}} <span style="opacity:0.4">({{seriedetails.network}} )</span></h3>
+		</section>
+		<section class="summary"><p>{{seriedetails.overview}} </p></section>
+		<ul>
+		    <li><p>Crée par <strong>{{seriedetails.createdby}}</strong></p></li>
+		    <li><p>{{seriedetails.nb_season}} saisons / {{seriedetails.nb_episodes}} épisodes</p></li>
+		    <li><p>{{seriedetails.prod}}</p></li>
+		</ul>
+	</section>
+</section>

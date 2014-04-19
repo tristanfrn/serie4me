@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>SeriesOrganizer</title>
+    </head>
+    <body ng-app="app">
+        <section class="wrapper">
+
+            <section class="page-main" style="width:100%;height:100%">
+                <section class="top-menu" ng-controller="navController">
+                    <section class="nav-buttons {{navactive.state}}">
+                        <article class="butt-prev" hm-tap="back()"><img src="img/previous.png" alt="PREV"></article>
+                        <article class="butt-home" hm-tap="goHome()"><img src="img/home.png" alt="HOME"></article>
+                    </section>
+                    <section class="menu_left_button" hm-tap="showRightMenu()"><img src="img/menu.png" alt="+"></section>
+                    <section class="title"><p>Sereez</p></section>
+
+                    <section class="menu-right {{buttons.menuright}}">
+                        <h2>SerieManager, c'est quoi ?</h2>
+                        <p>SerieManager vous permet de ne jamais perdre le fil dans vos séries. Il vous est désormais possible, en seulement quelques secondes, de ne jamais oublier où vous en êtes !</p>
+                        <p><strong>1/</strong> Ajoutez vos séries préférées</p>
+                        <p><strong>2/</strong> Complétez les en ajoutant saisons et épisodes</p>
+                        <p><strong>3/</strong> Cochez les épisodes que vous avez vu, et ne vous perdez plus jamais dans vos visionnages !</p>
+                    </section>
+                </section>
+                <section class="main-content {{ pageClass }}" ng-view>
+    
+                </section>
+            </section>
+        </section>
+
+        <script src="js/hammer.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-animate.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script src="js/angular-gestures.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
